@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Access with Responsive Button</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #1b03f8;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDiv">
+        <p>This is a paragraph.</p>
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+        </ul>
+    </div>
+
+    <button onclick="accessDOM()">Access DOM</button>
+
+    <script>
+        function accessDOM() {
+            const myDiv = document.getElementById("myDiv");
+            console.log(myDiv.innerHTML); 
+
+            // Example of modifying the DOM
+            const paragraph = myDiv.querySelector("p");
+            paragraph.textContent = "Paragraph text modified.";
+
+            // Example of adding a new element
+            const newListItem = document.createElement("li");
+            newListItem.textContent = "New list item";
+            const list = myDiv.querySelector("ul");
+            list.appendChild(newListItem);
+        }
+    </script>
+
+</body>
+</html>
